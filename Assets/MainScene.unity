@@ -186,6 +186,7 @@ Prefab:
     - {fileID: 136776285733856566, guid: c32f4fffca1d94d40bc67349543704ca, type: 2}
     - {fileID: 33105585386294336, guid: c32f4fffca1d94d40bc67349543704ca, type: 2}
     - {fileID: 136666861040096042, guid: c32f4fffca1d94d40bc67349543704ca, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: c32f4fffca1d94d40bc67349543704ca, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &747462597
@@ -215,12 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccab606ec9beba499837a814d7a512a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startX: -5
-  startY: -10
-  startZ: -5
-  endX: 5
-  endY: 10
-  endZ: 10
   jumpArcHeightMaximum: 2
   jumpArcWidthMaximum: 50
   platformsToGenerate: 30
@@ -229,6 +224,8 @@ MonoBehaviour:
   GenerationMargin: 3
   angleBounds: 180
   platform: {fileID: 4732947418770058, guid: bf13d4ea0f8e61546bc6ca9f3ca87ad0, type: 2}
+  winnerPlatform: {fileID: 4742341675075096, guid: 6301796e60419ef428e6fee03f964f9a,
+    type: 2}
   player: {fileID: 1922291092}
 --- !u!4 &747462599
 Transform:
@@ -273,10 +270,10 @@ RectTransform:
   m_Father: {fileID: 1666980480}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -103.97, y: -15}
-  m_SizeDelta: {x: 207.93, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368817339
 MonoBehaviour:
@@ -290,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -299,10 +296,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -310,7 +307,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Hours since last sleep : 0'
+  m_Text: Test
 --- !u!222 &1368817340
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -551,9 +548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1922291092}
   - component: {fileID: 1922291089}
-  - component: {fileID: 1922291088}
   - component: {fileID: 1922291086}
-  - component: {fileID: 1922291093}
   - component: {fileID: 1922291087}
   - component: {fileID: 1922291085}
   m_Layer: 0
@@ -577,6 +572,7 @@ MonoBehaviour:
   acceleration: 1000
   maxVelocity: 50
   jumpForce: 500
+  winTextLocation: {fileID: 1368817339}
 --- !u!54 &1922291086
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -605,20 +601,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1922291088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114466566162968122, guid: c32f4fffca1d94d40bc67349543704ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 352832560}
-  m_GameObject: {fileID: 1922291084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 432a891ae590f9540bb3162212aceb1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1368817339}
-  _hoursSinceLastSleep: 100
 --- !u!23 &1922291089
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -670,18 +652,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &1922291093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114391985943757572, guid: c32f4fffca1d94d40bc67349543704ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 352832560}
-  m_GameObject: {fileID: 1922291084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ef0160374abc034ca0b2ca4d3d0831f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2078970971
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1922291092}
-  camera: {fileID: 2078970972}
-  mouseLag: 0
-  lag: 1
+  playerCamera: {fileID: 2078970972}
+  platformGenerator: {fileID: 747462599}
+  textArea: {fileID: 1368817339}
+  mouseLag: 1
+  lag: 0
