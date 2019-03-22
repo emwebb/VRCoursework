@@ -7,7 +7,7 @@ using UnityEngine;
 public class LoadPlatforms : MonoBehaviour {
 
 	/// The maximum height a player can jump to.
-	public float jumpArcHeightMaximum = 2;
+	public float jumpArcHeightMaximum = 4;
 
 	/// The maximum distance a player can travel before being beneath their 
 	/// starting elevation.

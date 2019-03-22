@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccab606ec9beba499837a814d7a512a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpArcHeightMaximum: 2
+  jumpArcHeightMaximum: 4
   jumpArcWidthMaximum: 50
   platformsToGenerate: 30
   minimumXDistanceShift: 0
@@ -752,11 +752,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivityX: 60
   sensitivityY: 30
-  minimumX: -360
-  maximumX: 360
-  minimumY: -60
-  maximumY: 60
-  escapeKey: 27
 --- !u!1 &2139831571
 GameObject:
   m_ObjectHideFlags: 0
