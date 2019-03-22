@@ -18,6 +18,9 @@ public class InputController : MonoBehaviour {
 	/// A text area, into which the current delay is displayed.
 	public UnityEngine.UI.Text textArea;
 
+    /// The Sleep Deprivation Controller
+    public SleepDeprivationController sleepDeprivationController;
+
 	/// Whether or not to apply mouse lag.
 	public bool mouseLag = true;
 
@@ -54,6 +57,7 @@ public class InputController : MonoBehaviour {
 		mouseLookScript = playerCamera.gameObject.GetComponent<MouseLook>();
 		loadPlatforms = platformGenerator.gameObject
 			.GetComponent<LoadPlatforms>();
+        sleepDeprivationController = player.GetComponent<SleepDeprivationController>();
 		pauseState = false;
 		playerMoveScript.Unpause();
 		mouseLookScript.Unpause();
@@ -74,8 +78,8 @@ public class InputController : MonoBehaviour {
 
 		// Update the delay and reset the game if <c>delay</c> is pressed.
 		if (inputModel.setDelay(delay)) {
-			// Do not Enqueue, no requirement to delay delay alterations.
-			lag += delay * 0.05f;
+            // Do not Enqueue, no requirement to delay delay alterations.
+            sleepDeprivationController.sleepDeprivationHours += (int) delay * 3;
 			textArea.text = "Lag: ";
 			reset = 1;
 		}
