@@ -80,7 +80,7 @@ public class InputController : MonoBehaviour {
 		if (inputModel.setDelay(delay)) {
             // Do not Enqueue, no requirement to delay delay alterations.
             sleepDeprivationController.sleepDeprivationHours += (int) delay * 3;
-			textArea.text = "Lag: ";
+			textArea.text = "Hours sleep deprivation: ";
 			reset = 1;
 		}
 		// Update and queue lag for all controls.
@@ -109,7 +109,7 @@ public class InputController : MonoBehaviour {
 		// If the game has not been won, and the game is not paused, show the
 		// current lag.
 		if (!textArea.text.StartsWith("WINNER WINNER") && !pauseState) {
-			textArea.text = string.Format("Lag: {0:0.00}", lag);
+			textArea.text = string.Format("Hours sleep deprivation: {00}", sleepDeprivationController.sleepDeprivationHours);
 		}
 		// Consume the delay queue up to the current time adjusted for lag.
 		while (inputLagQueue.Count > 0) {
